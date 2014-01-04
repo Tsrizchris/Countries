@@ -1,0 +1,11 @@
+default-mayor-permissions:
+  -essentials.gamemode
+  -essentials.fly
+  -coreprotect.lookup
+default-resident-permissions:
+  -tperms.resident
+default-visitor-permissions:
+  -tperms.visitor
+mayor-distributable-perms:
+  -essentials.feed
+  -tperms.noenter
