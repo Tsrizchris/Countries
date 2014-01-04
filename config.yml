@@ -1,0 +1,6 @@
+sql:
+  url: 127.0.0.1
+  port: 3306
+  username: adminstrator
+  password: pass
+  database: minecraft
