@@ -17,16 +17,22 @@ public class Countries extends JavaPlugin {
 	public static Permission perms = null;
 	private Connector c;
 	
-	public static String GROUP_REFERENCER = "group_name";
-	public static String MEMBER_REFERENCER = "player_list";
-	public static String PERMISSION_REFERENCER = "permissions";
-	public static String IDENTIFIER = "ID";
+	public static final String GROUP_REFERENCER = "group_name";
+	public static final String MEMBER_REFERENCER = "player_list";
+	public static final String PERMISSION_REFERENCER = "permissions";
+	public static final String IDENTIFIER = "ID";
+	public static String[] defaultMayorPerms;
+	public static String commaMayorPerms;
 
 	@Override
 	public void onEnable(){
 		initVaultPerms();
 		loadConfig();
 		c = new Connector(this);
+		defaultMayorPerms = (String[]) this.getConfig().getStringList("default-mayor-permissions").toArray();
+		for(int x = 0; x < defaultMayorPerms.length; x++){
+			commaMayorPerms = commaMayorPerms + defaultMayorPerms[x] + ",";
+		}
 	}
 	
 	@SuppressWarnings("static-access")

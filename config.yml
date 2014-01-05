@@ -4,3 +4,9 @@ sql:
   username: adminstrator
   password: pass
   database: minecraft
+default-mayor-permissions:
+  -essentials.gamemode
+  -essentials.fly
+  -coreprotect.lookup
+  -tperms.give.essentails.feed
+  -tperms.give.coreprotect.lookup
