@@ -3,6 +3,7 @@ package com.tnmserver.countries.Events;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -106,6 +107,10 @@ class DeleteTown extends BukkitRunnable{
 					new RemovePerms(players[y], perms).runTask(plugin);
 				}
 			}
+			ResultSet rs = Connector.executePrepStatement("SELECT * FROM ? WHERE ?='Mayor'", new String[]{
+				evt.getTownName(), Countries.GROUP_REFERENCER
+			});
+			new nonFly(Bukkit.getPlayer(rs.getString(Countries.MEMBER_REFERENCER))).runTask(plugin);
 			String statement = "DROP ?";
 			String[] args = new String[1];
 			args[0] = evt.getTownName();

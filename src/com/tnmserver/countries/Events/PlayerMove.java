@@ -3,6 +3,7 @@ package com.tnmserver.countries.Events;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -26,6 +27,7 @@ public class PlayerMove implements Listener{
 	@EventHandler(priority=EventPriority.MONITOR)
 	public void onPlayerMove(PlayerMoveEvent evt){
 		new CheckPromoDemo(evt, plugin).runTaskAsynchronously(plugin);
+		new nonFly(evt.getPlayer()).runTask(plugin);
 	}
 	
 }
@@ -79,6 +81,21 @@ class CheckPromoDemo extends BukkitRunnable{
 				}
 			}
 		}		
+	}
+	
+}
+
+class nonFly extends BukkitRunnable{
+	
+	private Player player;
+	
+	public nonFly(Player p){
+		player = p;
+	}
+
+	@Override
+	public void run() {
+		player.setFlying(false);
 	}
 	
 }

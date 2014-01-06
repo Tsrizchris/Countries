@@ -5,8 +5,18 @@ sql:
   password: pass
   database: minecraft
 default-mayor-permissions:
-  -essentials.gamemode
-  -essentials.fly
-  -coreprotect.lookup
-  -tperms.give.essentails.feed
-  -tperms.give.coreprotect.lookup
+  - inspect
+  - rollback
+  - lookup
+  - restore
+  - ban
+  - mute
+  - unmute
+  - unban
+  - fly
+  - groupnew
+  - groupdelete
+  - groupadd
+  - groupremove
+  - playeradd
+  - playerremove
