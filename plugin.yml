@@ -2,3 +2,43 @@ name: Countries
 version: 0.0.1
 main: com.tnmserver.countries.Countries
 depend: [Vault]
+
+commands:
+  tperm:
+    description: The basis for assigning town-based permissions.
+    usage: /tperm
+    permission: tperms.command
+    permission-message: §9[TPerms] You do not have permission to do that.
+    
+permissions:
+  tperms.command.*:
+    description: Gives access to the basis for all town permission management
+    children:
+      tperms.command.list: true
+      tperms.command.group.new: true
+      tperms.command.group.delete: true
+      tperms.command.group.add: true
+      tperms.command.group.remove: true
+      tperms.command.player.add: true
+      tperms.command.player.remove: true
+  tperms.command.list:
+    description: List all groups in a town.
+    default: OP
+  tperms.command.group.new:
+    description: Create a new group in the town.
+    default: OP
+  tperms.command.group.delete:
+    description: Deletes a group from a town.
+    default: OP
+  tperms.command.group.add:
+    description: Add a permission to a group.
+    default: OP
+  tperms.command.group.remove:
+    description: Remove a permission from a group.
+    default: OP
+  tperms.command.player.add:
+    description: Add a player to a group.
+    default: OP
+  tperms.command.player.remove:
+    description: Remove a player from a group.
+    default: OP

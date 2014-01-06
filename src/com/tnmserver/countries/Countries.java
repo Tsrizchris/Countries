@@ -10,6 +10,7 @@ import net.milkbowl.vault.permission.Permission;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.tnmserver.countries.commands.TPermCommand;
 import com.tnmserver.countries.sql.Connector;
 
 public class Countries extends JavaPlugin {
@@ -19,7 +20,7 @@ public class Countries extends JavaPlugin {
 	
 	public static final String GROUP_REFERENCER = "group_name";
 	public static final String MEMBER_REFERENCER = "player_list";
-	public static final String PERMISSION_REFERENCER = "permissions";
+	public static final String PERMISSION_REFERENCER = "commands";
 	public static final String IDENTIFIER = "ID";
 	public static String[] defaultMayorPerms;
 	public static String commaMayorPerms;
@@ -33,6 +34,8 @@ public class Countries extends JavaPlugin {
 		for(int x = 0; x < defaultMayorPerms.length; x++){
 			commaMayorPerms = commaMayorPerms + defaultMayorPerms[x] + ",";
 		}
+		
+		getCommand("tperm").setExecutor(new TPermCommand(this));
 	}
 	
 	@SuppressWarnings("static-access")
